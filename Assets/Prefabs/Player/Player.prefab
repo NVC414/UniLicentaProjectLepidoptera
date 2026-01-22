@@ -45,6 +45,10 @@ GameObject:
   - component: {fileID: 2492942382011573617}
   - component: {fileID: 9033650097670370928}
   - component: {fileID: 3386765351967074008}
+  - component: {fileID: -1425132723742484591}
+  - component: {fileID: 2579144835307568605}
+  - component: {fileID: 2456745268023678970}
+  - component: {fileID: 274636845817722182}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -217,6 +221,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 86096e8d-20a7-445b-aafc-cbc40c0c43f8
     m_ActionName: 'Player/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6a2f4182-2405-44e7-a038-d0157ae22b63
+    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3f2a0fd2-58e7-44b9-a88a-5aff44b9c28b
+    m_ActionName: 'UI/Submit[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e36d27c0-5468-4933-b8d6-20910b9d6847
+    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6024ac6c-2082-4c7e-b20c-4e8d1f2da679
+    m_ActionName: 'UI/Point[/Mouse/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9eabaa56-eb9a-484f-98a0-62c38d39aff5
+    m_ActionName: 'UI/Click[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -235,6 +259,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPauseToggle
   look: {fileID: 2492942382011573617}
+--- !u!114 &-1425132723742484591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6246316825309867805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81be64912f47e15268718456f07a52ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 100
+--- !u!114 &2579144835307568605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6246316825309867805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80bf3e5eb43f83c3ab130066353a2375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthDebugDamage
+  health: {fileID: -1425132723742484591}
+  damagePerPress: 10
+--- !u!114 &2456745268023678970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6246316825309867805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eedc7328bc0ff52d94b46a5e17cb16d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDeathHandler
+  health: {fileID: -1425132723742484591}
+--- !u!114 &274636845817722182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6246316825309867805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6596e1dafb800ab8d3b29895d15542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHurtbox
+  health: {fileID: -1425132723742484591}
 --- !u!1 &6850376653781017569
 GameObject:
   m_ObjectHideFlags: 0
