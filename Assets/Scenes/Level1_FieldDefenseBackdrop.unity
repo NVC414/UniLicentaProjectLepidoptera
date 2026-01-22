@@ -226,7 +226,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 100, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -463,46 +463,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2052530819863298262, guid: 209e533dd58924098b79b99a39a92698, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2052530819863298262, guid: 209e533dd58924098b79b99a39a92698, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2052530819863298262, guid: 209e533dd58924098b79b99a39a92698, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2052530819863298262, guid: 209e533dd58924098b79b99a39a92698, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175852195616098401, guid: 209e533dd58924098b79b99a39a92698, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175852195616098401, guid: 209e533dd58924098b79b99a39a92698, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166757915101849167, guid: 209e533dd58924098b79b99a39a92698, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166757915101849167, guid: 209e533dd58924098b79b99a39a92698, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166757915101849167, guid: 209e533dd58924098b79b99a39a92698, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166757915101849167, guid: 209e533dd58924098b79b99a39a92698, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6195144883367331770, guid: 209e533dd58924098b79b99a39a92698, type: 3}
       propertyPath: m_Name
       value: DeathScreen
@@ -679,10 +639,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2456745268023678970, guid: 663435a076be69b7595eeeba283e1ed8, type: 3}
-      propertyPath: deathScreen
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4743560082279034286, guid: 663435a076be69b7595eeeba283e1ed8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
