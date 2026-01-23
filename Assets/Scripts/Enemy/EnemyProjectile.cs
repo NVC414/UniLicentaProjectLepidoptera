@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    [SerializeField] private float lifetime = 5f;
+    [SerializeField] float lifetime = 5f;
+    [SerializeField] int damage = 10;
 
-    private Rigidbody rb;
+    Rigidbody rb;
+    bool hasHit;
 
-    private void Awake()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -17,8 +19,15 @@ public class EnemyProjectile : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
+        if (hasHit) return;
+        hasHit = true;
+
+        var hurtbox = other.GetComponentInParent<PlayerHurtbox>();
+        if (hurtbox != null)
+            hurtbox.ApplyDamage(damage);
+
         Destroy(gameObject);
     }
 }

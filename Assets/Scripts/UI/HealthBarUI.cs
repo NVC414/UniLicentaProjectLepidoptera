@@ -6,6 +6,7 @@ public sealed class HealthBarUI : MonoBehaviour
     [SerializeField] Image fillImage;
 
     Health health;
+    float nextTryTime;
 
     void OnEnable()
     {
@@ -14,18 +15,34 @@ public sealed class HealthBarUI : MonoBehaviour
 
     void OnDisable()
     {
-        if (health != null) health.OnChanged -= OnHealthChanged;
+        Unbind();
+    }
+
+    void Update()
+    {
+        if (health != null) return;
+        if (Time.time < nextTryTime) return;
+        nextTryTime = Time.time + 0.25f;
+        TryBind();
     }
 
     void TryBind()
     {
-        if (health != null) return;
+        if (fillImage == null) return;
 
-        health = FindFirstObjectByType<Health>();
-        if (health == null) return;
+        var found = FindFirstObjectByType<Health>();
+        if (found == null) return;
 
+        health = found;
         health.OnChanged += OnHealthChanged;
         OnHealthChanged(health.Current, health.Max);
+    }
+
+    void Unbind()
+    {
+        if (health == null) return;
+        health.OnChanged -= OnHealthChanged;
+        health = null;
     }
 
     void OnHealthChanged(int current, int max)

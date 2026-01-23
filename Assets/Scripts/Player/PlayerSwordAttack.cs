@@ -72,24 +72,31 @@ public sealed class PlayerSwordAttack : MonoBehaviour
     {
         if (attackOrigin == null) return;
 
-        var center = attackOrigin.position
-                     + attackOrigin.forward * forwardOffset
-                     + Vector3.up * 1.0f;
+       var baseCenter = attackOrigin.position + attackOrigin.forward * forwardOffset;
 
+var bottom = baseCenter + Vector3.up * 0.2f;
+var top    = baseCenter + Vector3.up * 2.0f;
 
-        var count = Physics.OverlapSphereNonAlloc(
-            center, radius, results, hitMask, QueryTriggerInteraction.Ignore);
+var count = Physics.OverlapCapsuleNonAlloc(
+    bottom,
+    top,
+    radius,
+    results,
+    ~0,
+    QueryTriggerInteraction.Ignore
+);
 
-        for (int i = 0; i < count; i++)
-        {
-            var c = results[i];
-            if (c == null) continue;
+for (int i = 0; i < count; i++)
+{
+    var c = results[i];
+    if (c == null) continue;
 
-            var health = c.GetComponentInParent<Health>();
-            if (health == null) continue;
+    var health = c.GetComponentInParent<Health>();
+    if (health == null) continue;
 
-            health.Damage(damage);
-        }
+    health.Damage(damage);
+}
+
     }
 
     public void AnimEvent_AttackEnd()

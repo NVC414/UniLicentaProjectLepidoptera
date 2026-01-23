@@ -9,17 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: 12a189159adf214f09e3e5fb95c30440
-  - enabled: 1
     path: Assets/Scenes/Level1_FieldDefenseBackdrop.unity
     guid: 02184b718e218844c8d1e219803bb696
   - enabled: 1
-    path: Assets/Scenes/Level2_BanditCamp.unity
-    guid: 24dc0b0213f52e55195eebac4d807521
+    path: Assets/Scenes/Level1_ForestAttack.unity
+    guid: a000320b7f0c764ff93ccc349c816638
   - enabled: 1
-    path: Assets/Scenes/Level3_Sorcerers.unity
-    guid: ac1c8007d813d91988d9a5b7ed854c84
+    path: Assets/Scenes/Level2_VillageAttack.unity
+    guid: af14d8bcc57975f6988bcbae5646c4da
+  - enabled: 1
+    path: Assets/Scenes/Level3_Bossfight.unity
+    guid: ed25f31d328dfb9eba9ee67627a8982c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

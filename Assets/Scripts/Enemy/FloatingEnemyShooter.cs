@@ -15,6 +15,7 @@ public class FloatingEnemyShooter : MonoBehaviour
     [SerializeField] private float fireInterval = 1.25f;
     [SerializeField] private float projectileSpeed = 12f;
     [SerializeField] private float maxRange = 30f;
+[SerializeField] private float aimHeightOffset = 1.2f;
 
     private float nextFireTime;
 
@@ -54,11 +55,17 @@ public class FloatingEnemyShooter : MonoBehaviour
     }
 
     private void Fire()
-    {
-        Vector3 aimPoint = target.position;
-        Vector3 dir = (aimPoint - muzzle.position).normalized;
+{
+    Vector3 aimPoint = target.position + Vector3.up * aimHeightOffset;
+    Vector3 dir = (aimPoint - muzzle.position).normalized;
 
-        EnemyProjectile p = Instantiate(projectilePrefab, muzzle.position, Quaternion.LookRotation(dir, Vector3.up));
-        p.Launch(dir * projectileSpeed);
-    }
+    EnemyProjectile p = Instantiate(
+        projectilePrefab,
+        muzzle.position,
+        Quaternion.LookRotation(dir, Vector3.up)
+    );
+
+    p.Launch(dir * projectileSpeed);
+}
+
 }

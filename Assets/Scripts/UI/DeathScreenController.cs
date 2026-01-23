@@ -9,10 +9,26 @@ public sealed class DeathScreenController : MonoBehaviour
     PlayerInput playerInput;
     MonoBehaviour[] disableGameplay;
 
+    bool isShown;
+
     void Awake()
     {
         if (root != null) root.SetActive(false);
         BindPlayer();
+    }
+
+    void Update()
+    {
+        if (!isShown) return;
+
+        var keyboard = Keyboard.current;
+        if (keyboard == null) return;
+
+        if (keyboard.rKey.wasPressedThisFrame)
+            ReloadLevel();
+
+        if (keyboard.mKey.wasPressedThisFrame)
+            GoToMenu();
     }
 
     void BindPlayer()
@@ -34,6 +50,7 @@ public sealed class DeathScreenController : MonoBehaviour
     public void Show()
     {
         if (root != null) root.SetActive(true);
+        isShown = true;
 
         if (disableGameplay != null)
             for (int i = 0; i < disableGameplay.Length; i++)

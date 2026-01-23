@@ -23,38 +23,42 @@ public sealed class EnemyDeathHandler : MonoBehaviour
         if (health != null) health.OnDied -= OnDied;
     }
 
-    void OnDied()
+   void OnDied()
+{
+    if (isDead) return;
+    isDead = true;
+
+    if (HUDController.Instance != null)
+        HUDController.Instance.AddKill();
+
+    var agent = GetComponent<NavMeshAgent>();
+    if (agent != null)
     {
-        if (isDead) return;
-        isDead = true;
-
-        var agent = GetComponent<NavMeshAgent>();
-        if (agent != null)
-        {
-            agent.isStopped = true;
-            agent.ResetPath();
-            agent.enabled = false;
-        }
-
-        var attacker = GetComponent<MeleeEnemyAttacker>();
-        if (attacker != null) attacker.enabled = false;
-
-        var relays = GetComponentsInChildren<AnimationEventRelay>(true);
-        for (int i = 0; i < relays.Length; i++) relays[i].enabled = false;
-
-        var hitboxes = GetComponentsInChildren<EnemyMeleeHitbox>(true);
-        for (int i = 0; i < hitboxes.Length; i++) hitboxes[i].gameObject.SetActive(false);
-
-        if (disableCollidersOnDeath)
-        {
-            var cols = GetComponentsInChildren<Collider>(true);
-            for (int i = 0; i < cols.Length; i++) cols[i].enabled = false;
-        }
-
-        if (animator != null)
-        {
-            animator.Play(deathStateName, 0, 0f);
-            animator.Update(0f);
-        }
+        agent.isStopped = true;
+        agent.ResetPath();
+        agent.enabled = false;
     }
+
+    var attacker = GetComponent<MeleeEnemyAttacker>();
+    if (attacker != null) attacker.enabled = false;
+
+    var relays = GetComponentsInChildren<AnimationEventRelay>(true);
+    for (int i = 0; i < relays.Length; i++) relays[i].enabled = false;
+
+    var hitboxes = GetComponentsInChildren<EnemyMeleeHitbox>(true);
+    for (int i = 0; i < hitboxes.Length; i++) hitboxes[i].gameObject.SetActive(false);
+
+    if (disableCollidersOnDeath)
+    {
+        var cols = GetComponentsInChildren<Collider>(true);
+        for (int i = 0; i < cols.Length; i++) cols[i].enabled = false;
+    }
+
+    if (animator != null)
+    {
+        animator.Play(deathStateName, 0, 0f);
+        animator.Update(0f);
+    }
+}
+
 }
